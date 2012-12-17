@@ -14,16 +14,8 @@ describe UidAt::Validator do
   describe "#valid?" do
     let(:uid) { UidAt::Validator.new("abcde") }
 
-    before :each do
-      UidAt::Config.config do |config|
-        config.subscriber = "johndoe"
-        config.user = "johndoesmom"
-        config.pin = "1234"
-      end
-    end
-
     it "return true if the uid is valid" do
-      uid.should be_valid
+      uid.should == true
     end
 
     it "returns false on invalid uids" do

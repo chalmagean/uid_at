@@ -1,19 +1,19 @@
 module UidAt
   module Config
-    def self.subscriber
-      @@subscriber
+    def self.subscriber_id
+      @@subscriber_id
     end
 
-    def self.subscriber=(subscriber)
-      @@subscriber = subscriber
+    def self.subscriber_id=(subscriber_id)
+      @@subscriber_id = subscriber_id
     end
 
-    def self.user
-      @@user
+    def self.user_id
+      @@user_id
     end
 
-    def self.user=(user)
-      @@user = user
+    def self.user_id=(user_id)
+      @@user_id = user_id
     end
 
     def self.pin

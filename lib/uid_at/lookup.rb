@@ -1,18 +1,15 @@
-require 'uid_at'
-require 'uid_at/request'
-require 'uid_at/config'
 require 'net/http'
 
 module UidAt
   module Lookup
-    def self.validate(uid)
-      request = UidAt::Request.new(uid, UidAt::Config)
+    def validate(uid)
+      request = UidAt::Request.new(uid)
 
       response = request.perform(self.client)
-      response[:valid]
+      response
     end
 
-    def self.client
+    def client
       @client ||= begin
         # Require Savon only if really needed!
         require 'savon' unless defined?(Savon)
