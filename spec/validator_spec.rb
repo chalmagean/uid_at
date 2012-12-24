@@ -12,14 +12,14 @@ describe UidAt::Validator do
   end
 
   describe "#valid?" do
-    let(:uid) { UidAt::Validator.new("abcde") }
+    let(:uid) { UidAt::Validator.new("bcde") }
 
     it "return true if the uid is valid" do
-      uid.should == true
+      uid.valid?.should == true
     end
 
     it "returns false on invalid uids" do
-      uid.should_not be_valid
+      uid.valid?.should == false
     end
   end
 end

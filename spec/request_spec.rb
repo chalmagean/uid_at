@@ -12,12 +12,12 @@ describe UidAt::Request do
     let(:client) { stub("client") }
     let(:request) { UidAt::Request.new }
 
-    it "delegates a login request to the lookup client" do
+    it "delegates a login request to the API" do
       client.should_receive(:request).with("urn", "Login").and_return({:login_response => {:result => "ok"}})
       request.login(client)
     end
 
-    it "returns the session id when logged in successfuly" do
+    it "returns and sets the session_id when logged in successfuly" do
       client.stub(:request).with("urn", "Login").and_return({:login_response => {:result => "ok"}})
       request.login(client).should == "ok"
     end
@@ -27,16 +27,26 @@ describe UidAt::Request do
     let(:client) { stub("client") }
     let(:request) { UidAt::Request.new }
 
-    it "delegates a logout request to the lookup client" do
+    it "delegates a logout request to the API" do
       request.stub(:session_id)
-      client.should_receive(:request).with("urn", "Logout").and_return({:login_response => {:result => "ok"}})
+      client.should_receive(:request).with("urn", "Logout").and_return({:logout_response => {:result => "ok"}})
       request.logout(client)
     end
 
     it "returns true if logged out successfuly" do
       request.stub(:session_id).and_return("ok")
-      client.stub(:request).with("urn", "Logout").and_return({:login_response => {:result => "ok"}})
+      client.stub(:request).with("urn", "Logout").and_return({:logout_response => {:result => "ok"}})
       request.logout(client).should == true
+    end
+  end
+
+  describe "#perform" do
+    let(:client) { stub("client") }
+    let(:request) { UidAt::Request.new }
+
+    it "delegates the data validation to the API" do
+      client.should_receive(:request).with("uid", "uidAbfrageRequest").and_return({:uid_abfrage_response => {:rc => "0"}})
+      request.perform("someUID", client).should == true
     end
   end
 end
