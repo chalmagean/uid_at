@@ -26,6 +26,15 @@ UidAt.user_id = "<Your UserId>"
 UidAt.pin = "<Your Pin>"
 ```
 
+Here's how you can use it:
+
+```
+v = UidAt::Validator.new("ATU64968899") 
+=> true
+v = UidAt::Validator.new("xxx") 
+=> false
+```
+
 ## Contributing
 
 1. Fork it
