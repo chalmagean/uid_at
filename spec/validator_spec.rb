@@ -15,10 +15,12 @@ describe UidAt::Validator do
     let(:uid) { UidAt::Validator.new("bcde") }
 
     it "return true if the uid is valid" do
+      UidAt::Lookup.stub(:validate).and_return(true)
       uid.valid?.should == true
     end
 
     it "returns false on invalid uids" do
+      UidAt::Lookup.stub(:validate).and_return(false)
       uid.valid?.should == false
     end
   end

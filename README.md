@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You should overwrite the authentication info in an initializer file `config/initializers/uid_at.rb`:
+
+```
+UidAt.subscriber_id = "<Your SubscriberID>"
+UidAt.user_id = "<Your UserId>"
+UidAt.pin = "<Your Pin>"
+```
 
 ## Contributing
 

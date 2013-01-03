@@ -3,5 +3,7 @@ require 'bundler/setup'
 require 'uid_at'
 
 RSpec.configure do |config|
-  # some (optional) config here
+  config.before(:all) do
+  end
 end
+
