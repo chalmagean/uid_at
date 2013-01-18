@@ -49,4 +49,13 @@ describe UidAt::Request do
       request.perform("someUID", client).should == true
     end
   end
+
+  describe "#perform_details" do
+    let(:client) { stub("client") }
+    let(:request) { UidAt::Request.new }
+    it "delegates the data validation to the API" do
+      client.should_receive(:request).with("uid", "uidAbfrageRequest").and_return({:uid_abfrage_response => {:rc => "0", :name=>"Foobar John", :adrz1=>"Hauptstrasse 1", :adrz1=>"A-1110 Wien"}})
+      request.perform("someUID", client, :details=>true).should == {:rc=>"0", :adrz1=>"A-1110 Wien", :name=>"Foobar John"} 
+    end
+  end
 end
