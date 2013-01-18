@@ -9,7 +9,7 @@ module UidAt
           "uid:sessionid" => session_id,
           "uid:tid"   => UidAt.subscriber_id,
           "uid:benid" => UidAt.user_id,
-          "uid:uid_tn" => UidAt.uid,
+          "uid:uid_tn" => UidAt.uid_tn,
           "uid:uid" => uid,
           "uid:stufe" => "2"
         }

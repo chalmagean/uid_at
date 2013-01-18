@@ -7,9 +7,9 @@ module UidAt
   @subscriber_id = "SubscriberID"
   @user_id = "UserId"
   @pin = "Pin"
-  @uid = "UID"
+  @uid_tn = "UID"
 
   class << self
-    attr_accessor :subscriber_id, :user_id, :pin, :uid
+    attr_accessor :subscriber_id, :user_id, :pin, :uid_tn
   end
 end
