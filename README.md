@@ -24,16 +24,27 @@ You should overwrite the authentication info in an initializer file `config/init
 UidAt.subscriber_id = "<Your SubscriberID>"
 UidAt.user_id = "<Your UserId>"
 UidAt.pin = "<Your Pin>"
+UidAt.uid = "<Your UID>"
 ```
 
 Here's how you can use it:
 
 ```
 v = UidAt::Validator.new("ATU64968899") 
+v.valid?
 => true
 v = UidAt::Validator.new("xxx") 
+v.valid?
 => false
+v = UidAt::Validator.new("ATU64968899") 
+v.get_details
+=> all company details needed (name, address)
 ```
+
+## ToDo
+
+1. Parse error Codes returned from Finanzonline
+
 
 ## Contributing
 
