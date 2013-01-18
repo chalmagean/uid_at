@@ -14,7 +14,7 @@ module UidAt
           "uid:stufe" => "2"
         }
       end.to_hash[:uid_abfrage_response]
-      options[:details]==true ? response : response[:rc] == "0"
+      options[:details] ? response : response[:rc] == "0"
     end
 
     def login(client)
