@@ -48,5 +48,15 @@ describe UidAt::Request do
       client.should_receive(:request).with("uid", "uidAbfrageRequest").and_return({:uid_abfrage_response => {:rc => "0"}})
       request.perform("someUID", client).should == true
     end
+
+    it "returns a hash if details where requested" do
+      client.stub(:request).with("uid", "uidAbfrageRequest").and_return({:uid_abfrage_response => {:rc=>"0", :adrz1=>"A-1110 Wien", :name=>"Foobar John"}})
+      request.perform("someUID", client, :details => true).should include(:name => "Foobar John")
+    end
+
+    it "returns true if no details where requested" do
+      client.stub(:request).with("uid", "uidAbfrageRequest").and_return({:uid_abfrage_response => {:rc=>"0", :adrz1=>"A-1110 Wien", :name=>"Foobar John"}})
+      request.perform("someUID", client).should == true
+    end
   end
 end

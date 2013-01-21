@@ -9,10 +9,10 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Cezar Halmagean"]
   gem.email         = ["cezar@halmagean.ro"]
   gem.description   = %q{Fetch the Austrian UID}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.summary       = %q{Validates european vat numbers with the Austrian "finanzonline". You need to be an Austrian company and sign up with finanzonline to use this.}
   gem.homepage      = ""
 
-  gem.add_dependency("savon", ">= 1.2.0")
+  gem.add_dependency("savon", "~> 1.2.0")
   gem.add_development_dependency("rspec")
 
   gem.files         = `git ls-files`.split($/)

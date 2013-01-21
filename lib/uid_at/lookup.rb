@@ -2,20 +2,19 @@ require 'net/http'
 
 module UidAt
   module Lookup
-
-    def self.validate(uid)
+    def self.get_uid_details(uid,options={:details=>true})
       request = UidAt::Request.new
 
       # Gotta authenticate
       request.login(self.auth_client)
 
       # Check if the uid is valid or not
-      response = request.perform(uid, self.uid_client)
+      response = request.perform(uid, self.uid_client,options)
 
       # Clening up after ourselves
       request.logout(self.auth_client)
 
-      response
+      response      
     end
 
     private
