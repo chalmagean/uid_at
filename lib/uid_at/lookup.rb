@@ -14,7 +14,7 @@ module UidAt
       # Clening up after ourselves
       request.logout(self.auth_client)
 
-      response      
+      response
     end
 
     private
