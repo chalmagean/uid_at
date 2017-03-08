@@ -14,7 +14,7 @@ module UidAt
       # Clening up after ourselves
       request.logout(self.auth_client)
 
-      response      
+      response
     end
 
     private
@@ -22,14 +22,14 @@ module UidAt
     def self.uid_client
       self.client_config
       Savon::Client.new do
-        wsdl.endpoint = "https://finanzonline.bmf.gv.at/fon/ws/uidAbfrageService"
-        wsdl.namespace = "https://finanzonline.bmf.gv.at/fon/ws/uid"
+        wsdl.endpoint = "https://finanzonline.bmf.gv.at/fon/ws/uidAbfrageService.wsdl"
+        wsdl.namespace = "https://finanzonline.bmf.gv.at/fon/ws/uidAbfrage"
       end
     end
 
     def self.auth_client
       self.client_config
-      Savon::Client.new("https://finanzonline.bmf.gv.at/fon/services/SessionWSI/wsdl/SessionWSIService.wsdl")
+      Savon::Client.new("https://finanzonline.bmf.gv.at/fonws/ws/sessionService.wsdl")
     end
 
     def self.client_config
